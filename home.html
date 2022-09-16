@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(savePosition, positionError, { timeout: 10000 });
+            } else {
+                //Geolocation is not supported by this browser
+            }
+        }
+
+        // handle the error here
+        function positionError(error) {
+            var errorCode = error.code;
+            var message = error.message;
+
+            alert(message);
+        }
+
+        function savePosition(position) {
+            $.post("./backend/geolocation.php", { lat: position.coords.latitude, lng: position.coords.longitude });
+        }
+    </script>
+    <title>Home | Rythu Seva</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body {
+            background-image: url('./images/rythu-bg.jpeg');
+            background-repeat: no-repeat;
+            background-position: scroll;
+            color: rgb(21, 20, 20);
+            background-size: 100% auto;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #navi a:hover {
+            color: rgb(252, 251, 251);
+            background-color: rgb(1, 98, 1);
+        }
+
+        #navi a:active {
+            color: rgb(255, 255, 255);
+            background-color: rgb(1, 91, 1);
+        }
+
+        #navi {
+            background-image: linear-gradient(to bottom right, rgb(44, 173, 61), rgb(38, 42, 1));
+        }
+
+        #navi a {
+            padding-top: 10px;
+            position: relative;
+        }
+
+        #services {
+            width: 100%;
+            padding: 10px;
+            color: black;
+            border-style: double;
+            justify-content: center;
+            background-image: linear-gradient(to bottom right, rgb(89, 210, 105), rgb(111, 118, 47));
+            background-size: cover;
+            position: relative;
+            top: -230px;
+
+        }
+
+        #services::before {
+            content: "";
+
+            background-image: linear-gradient(to bottom right, rgb(89, 210, 105), rgb(111, 118, 47));
+            background-size: cover;
+
+            opacity: 0.7;
+        }
+
+
+        .grid-item {
+            /* background-color: rgba(191, 30, 30, 0.8); */
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 5px;
+            border-style: double;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!--navigation bootstrap start-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-size: 35px; padding-left: 10px;">
+                <img src="./images/farmer-logo.png" alt="logo" srcset="" width="60px">
+                <b style="padding-left:15px; font-family:'Handlee', cursive;">Rythu Seva</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="crop.html">Crop Suggestion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="disease.html">Crop Disease Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fertilizer.html">Fertilizers Recomendation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tech-farming.html">Tech Farming</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="reg.php">Register</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">About &amp; Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1">
+                            <div id="google_translate_element" style="border-radius: 5px; padding-left: 50px;"></div>
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                    <button class="btn btn-primary btn-outline-light" onclick="getLocation();">Location</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--navigation bootstrap end-->
+    <br><br><br>
+    <center>
+
+        <div>
+            <p style="font-size: 50px;">Get informed about your farming strategy
+            <p style="font-size: 34px;">Here are some Questions we will answer. </p>
+            </p>
+            <ul style="font-size: 25px;font-style:bold;">
+                <li>What crop to plant ?</li>
+                <li>What fertilizer to use ?</li>
+                <li>Which Disease do our crop have ?</li>
+                <li>How to cure Plant Diseases ?</li>
+            </ul>
+            <div class="assistent" style="position: relative; left:-38%; top:-250px;">
+                <img src="./images/tractor-farmer.png" alt="logo" srcset="" width="300px">
+                <img src="./images/wifilogo.png" alt="logo" srcset="" width="70px"
+                    style="transform:rotate(120deg); position: relative; top: -100px;left: -100px;">
+            </div>
+        </div>
+    </center><br><br><br>
+
+    <div class="container" id="services">
+        <div class="row">
+            <div class="col-md">
+                <img src="" alt="">
+                <h3>Crop Suggestion</h3>
+                <li>Recommendation about the types of crops need to be cultivated
+                    which can maximize the farmer's profit
+
+                </li>
+                <button class="btn btn-success" onclick="location.href='crop.html';">Learn more</button>
+
+            </div>
+            <div class="col-md">
+                <img src="" alt="">
+                <h3>Irrigation System</h3>
+                <li>Recommendation about the types of Irrigation System need to be followed
+                    which can maximize the farmer's profit
+
+                </li>
+                <button class="btn btn-success" onclick="location.href='crop.html';">Learn more</button>
+
+            </div>
+            <div class="col-md">
+                <img src="" alt="">
+                <h3>Fertilizer Recomendation</h3>
+                <li>
+                    Recommend about the type of fertilizer best suited for
+                    the particular soil and recommend the crop
+                </li>
+                <button class="btn btn-success" onclick="location.href='fertilizer.html';">Learn more</button>
+            </div>
+            <div class="col-md">
+                <img src="" alt="">
+                <h3>Crop Disease prediction</h3>
+                <li>
+                    Predicting the name and causes of crop disease abd suggestions to cure it
+                </li>
+                <button class="btn btn-success" onclick="location.href='disease.html';">Learn more</button>
+            </div>
+            <div class="col-md">
+                <img src="" alt="">
+                <h3>Tech Farming</h3>
+                <li>
+                    A blog about agricultural technology
+                </li>
+                <button class="btn btn-success" onclick="location.href='disease.html';">Learn more</button>
+            </div>
+        </div>
+    </div><br><br><br>
+    <!--footer start-->
+    <div class="about"
+        style=" width:100%; height:auto;background-image:linear-gradient(to bottom right, rgb(148, 220, 59), rgb(9, 9, 6));;color:#fdfafa; position: relative;top: -30px;">
+        <br>
+        <h2 style="margin-left:20px;">About us</h2>
+        <div id="abt" class="d-flex align-items-start">
+            <p style="margin-left:10px;"> To Make Farmers Increase
+                Profit.We use state-of-the-art machine learning and deep learning technologies to help you
+                guide through
+                the entire farming process. Make informed decisions to understand the demographics of your area,
+                understand the
+                factors that affect your crop and keep them healthy for a super awesome successful yield</p>
+        </div><br><br>
+
+        <div id="copyright" class="d-flex align-items-end" style="margin-left:10%">
+
+
+        </div>
+        <div style="margin-top:0px;">
+            <center>©
+                <?php echo date("Y");?> All right are reserved for Rythu Seva organization.
+            </center>
+        </div>
+    </div>
+
+    <!--footer end-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
