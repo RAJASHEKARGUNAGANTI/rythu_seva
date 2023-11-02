@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+        <title>Fertilizer Recomendation | Rythu Seva</title>
+</head>
+<style>
+  #container-fiuid{
+    background-image:linear-gradient(to bottom right, rgb(44, 173, 61), rgb(38, 42, 1));
+  }
+  body{
+    background-image: url('../static/images/fertilizer-1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  #navi a:hover {
+                color: rgb(252, 251, 251);
+                background-color: rgb(1, 98, 1);
+            }
+
+            #navi a:active {
+                color: rgb(255, 255, 255);
+                background-color: rgb(1, 91, 1);
+            }
+            #navi{
+                background-image:linear-gradient(to bottom right, rgb(44, 173, 61), rgb(38, 42, 1));
+            }
+            #navi a{
+                padding-top: 10px;
+                 position: relative;
+            }
+            .encoded-values{
+              width: 100%;
+              display:flex;
+              
+            }
+</style>
+<body>
+  <!--navigation bootstrap start-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-size: 35px; padding-left: 10px;">
+            <img src="../static/images/farmer-logo.png" alt="logo" srcset="" width="60px">
+            <b style="padding-left:15px; font-family:'Handlee', cursive;">Rythu Seva</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/crop">Crop Suggestion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://karthik6717-tomato-disease-main-8jasm5.streamlit.app/">Crop Disease Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/fertilizer">Fertilizers Recomendation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/techFarming">Tech Farming</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="#">Login</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="reg.php">Register</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">About &amp; Contact</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1">
+                        <div id="google_translate_element" style="border-radius: 5px; padding-left: 50px;" ></div>
+                    </a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--navigation bootstrap end-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: black">
+  <b>Get informed advice on fertilizer based on soil</b>
+</h2>
+<br />
+
+<div
+  style="
+    width: 350px;
+    height: 40rem;
+    margin: 0px auto;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px 10px;
+  "
+>
+  <!-- <form method="POST" action="/predict_fertilizer">
+    <div class="form-group">
+      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+      <input
+        type="number"
+        class="form-control"
+        id="Nitrogen"
+        name="nitrogen"
+        placeholder="Enter the value (example:50)"
+        style="font-weight: bold"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="Phosphorous" style="font-size: 17px"
+        ><b>Phosphorous</b></label
+      >
+      <input
+        type="number"
+        class="form-control"
+        id="Phosphorous"
+        name="phosphorous"
+        placeholder="Enter the value (example:50)"
+        style="font-weight: bold"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+      <input
+        type="number"
+        class="form-control"
+        id="Pottasium"
+        name="pottasium"
+        placeholder="Enter the value (example:50)"
+        style="font-weight: bold"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+      <input
+        type="text"
+        class="form-control"
+        id="ph"
+        name="ph"
+        placeholder="Enter the value"
+        style="font-weight: bold"
+        required
+      />
+    </div> 
+    <div class="form-group">
+      <label for="crop" style="font-size: 17px"
+        ><b>Crop you want to grow</b></label
+      >
+      <select
+        name="cropname"
+        class="form-control"
+        id="crop"
+        placeholder="Select a crop"
+        style="font-weight: bold"
+        required
+      >
+        <option selected>Select crop</option>
+        <option>rice</option>
+        <option>maize</option>
+        <option>chickpea</option>
+        <option>kidneybeans</option>
+        <option>pigeonpeas</option>
+        <option>mothbeans</option>
+        <option>mungbean</option>
+        <option>blackgram</option>
+        <option>lentil</option>
+        <option>pomegranate</option>
+        <option>banana</option>
+        <option>mango</option>
+        <option>grapes</option>
+        <option>watermelon</option>
+        <option>muskmelon</option>
+        <option>apple</option>
+        <option>orange</option>
+        <option>papaya</option>
+        <option>coconut</option>
+        <option>cotton</option>
+        <option>jute</option>
+        <option>coffee</option>
+      </select>
+    </div>
+<br>
+    <div class="d-flex justify-content-center">
+    <button
+        type="submit"
+        class="btn btn-success"
+        style="
+          color: rgb(255, 252, 252);
+          font-weight: bold;
+          width: 130px;
+          height: 50px;
+          border-radius: 12px;
+          font-size: 21px;
+        "
+      >
+        Predict
+      </button>
+    </div>
+  </form> -->
+
+<!-- Karthik fertilizer form starts -->
+
+<form action="/predict" method="POST" >
+  <b style="color: black;"> Temparature :<input type="number" step="0.1" name="a" placeholder="Enter value of Temparature" style="color: black;"> <br><br>
+      Humidity :<input type="number" step="0.1" name="b" placeholder="Enter value of Humidity" style="color: black;"> <br><br>
+      Moisture :<input type="number" step="0.1" name="c" placeholder="Enter value  of Moisture" style="color: black;"> <br><br>
+      Soil Type :<input type="number" step="0.1" name="d" placeholder="Enter value of Soil Type" style="color: black;"> <br><br>
+      Crop Type :<input type="number" step="0.1" name="e" placeholder="Enter value Crop Type " style="color: black;"> <br><br>
+      Nitrogen :<input type="number" step="0.1" name="f" placeholder="Enter value Nitrogen" style="color: black;"> <br><br>
+      Potassium :<input type="number" step="0.1" name="g" placeholder="Enter value of Potassium" style="color: black;"> <br><br>
+      Phosphorous :<input type="number" step="0.1" name="h" placeholder="Enter value of Phosphorous" style="color: black;"> <br><br><br></b>
+      <button class="btn btn-dark" type="submit" name="submit" value="predict">Submit</button>
+      </form>
+
+      {%if data == 0%}
+        <h1 style="color: black;"> 10-26-26</h1>
+        
+        {%elif data == 1%}
+        <h1 style="color: black;">14-35-14</h1>
+
+        {%elif data==2%}
+        <h1 style="color: black;">17-17-17</h1>
+
+        {%elif data==3%}
+        <h1 style="color: black;">20-20</h1>
+        
+        {%elif data==4%}
+        <h1 style="color: black;">28-28</h1>
+
+        
+        {%elif data==5%}
+        <h1 style="color: black;">DAP</h1>
+        
+
+        {%else%}
+        <h1 style="color: black;">Urea</h1>
+
+        {%endif%}
+        <h2> </h2>
+
+      <!-- <div>
+        <h3 style="color: black;">{{data}}</h3>
+      </div> -->
+
+<!-- Karthik fertilizer form ends -->
+
+<h3 style="color: black;">Encoding Values</h3>
+<div class="encoded-values">
+  <div class="crop" style="color: black;">
+    <ul>
+      <h4>Crop Type</h4>
+      <li>Barley  0</li>
+      <li>Cotton  1</li>
+      <li>Ground nuts  2</li>
+      <li>Maize  3</li>
+      <li>Millets  4</li>
+      <li>Oil seeds  5</li>
+      <li>Paddy  6</li>
+      <li>Pulses  7</li>
+      <li>Sugarcane  8</li>
+      <li>Tobacco  9</li>
+      <li>Wheat  10</li>
+    </ul>
+  </div>
+  <div class="soil" style="color: black;">
+    <ul>
+      <h4>Soil Type</h4>
+      <li>Black  0</li>
+      <li>Clayey  1</li>
+      <li>Loamy  2</li>
+      <li>Red  3</li>
+      <li>Sandy  4</li>
+    </ul>
+  </div>
+</div>
+
+
+</div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
