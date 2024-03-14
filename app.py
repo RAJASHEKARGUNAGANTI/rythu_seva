@@ -15,6 +15,18 @@ def home():
 def crop():
     return render_template("crop.html")
 
+@app.route('/seeds')
+def seeds():
+    return render_template("seeds.html")
+
+@app.route('/fertilizers')
+def fertilizers():
+    return render_template("fertilizers.html")
+
+@app.route('/pesticides')
+def pesticides():
+    return render_template("pesticides.html")
+
 @app.route('/crop_recommend', methods=['POST'])
 def result():
     print(request.form)
