@@ -2,6 +2,12 @@ from flask import Flask, render_template, request, jsonify
 import joblib
 import pickle
 import numpy as np
+import openai
+import os
+
+# Set your OpenAI API key from environment variable
+openai.api_key = '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'
+
 
 app = Flask(__name__)
 
@@ -30,20 +36,6 @@ def pesticides():
 @app.route('/login')
 def login():
     return render_template("login.html")
-
-# @app.route('/signin', methods=['POST'])
-# def signin():
-#     # Extract email and password from the request
-#     email = request.form.get('email')
-#     password = request.form.get('password')
-
-#     # Perform authentication logic (replace this with your actual authentication logic)
-#     if email == 'example@example.com' and password == 'password':
-#         # Authentication successful
-#         return jsonify({'message': 'Login successful'})
-#     else:
-#         # Authentication failed
-#         return jsonify({'error': 'Invalid email or password'}), 401
 
 @app.route('/register')
 def register():
@@ -95,6 +87,31 @@ def techfarming():
 @app.route('/home')
 def index():
     return render_template("index.html")
+
+@app.route('/api', methods=['POST'])
+def process_api_request():
+    try:
+        data = request.get_json()
+        user_message = data.get('message')
+        print(user_message)
+
+        # Send user message to OpenAI API
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Use the appropriate engine
+            messages=[
+                # {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_message},
+            ],
+            max_tokens=100
+        )
+
+        # Extract the generated response from OpenAI API
+        ai_response = response['choices'][0]['message']['content']
+        print(ai_response)
+        return jsonify({'message': ai_response})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
     
 
 if __name__ == '__main__':

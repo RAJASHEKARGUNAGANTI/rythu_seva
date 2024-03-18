@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="UTF-8">
-    <meta name="description" content="Free Web tutorials">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="John Doe">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
-<!-- chatbot -->
-<link rel="stylesheet" href="./chatbot/chat.css">
-    <link rel="stylesheet" href="./chatbot/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap"
+            rel="stylesheet">
+        <!-- chatbot -->
+        <link rel="stylesheet" href="../static/chat.css">
+        <link rel="stylesheet" href="../static/home.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(savePosition, positionError, { timeout: 10000 });
@@ -44,8 +51,8 @@
             $.post("./backend/geolocation.php", { lat: position.coords.latitude, lng: position.coords.longitude });
         }
     </script>
-    <title>Home | Rythu Seva</title>
-    <style>
+        <title>Home | Rythu Seva</title>
+        <style>
         * {
             padding: 0%;
             margin: 0%;
@@ -118,245 +125,476 @@
             list-style-type: none;
         }
     </style>
-</head>
+    </head>
 
-<body>
+    <body>
 
+        <!--navigation bootstrap start-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"
+                    style="font-size: 35px; padding-left: 10px;">
+                    <img src="../static/images/farmer-logo.png" alt="logo"
+                        srcset width="60px">
+                    <b
+                        style="padding-left:15px; font-family:'Handlee', cursive;">Rythu
+                        Seva</b></a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="{{url_for('home')}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/crop">Crop Suggestion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://karthik6717-tomato-disease-main-8jasm5.streamlit.app/">Crop
+                                Disease Prediction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/fertilizer">Fertilizers
+                                Recomendation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/techFarming">Tech
+                                Farming</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ecommerce
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
 
-    <!--navigation bootstrap start-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="font-size: 35px; padding-left: 10px;">
-                <img src="../static/images/farmer-logo.png" alt="logo" srcset="" width="60px">
-                <b style="padding-left:15px; font-family:'Handlee', cursive;">Rythu Seva</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/crop">Crop Suggestion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://karthik6717-tomato-disease-main-8jasm5.streamlit.app/">Crop Disease Prediction</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/fertilizer">Fertilizers Recomendation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/techFarming">Tech Farming</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Ecommerce
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item"
+                                        href="/seeds">Seeds</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="/fertilizers">Fertilizers</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="/pesticides">Pesticides</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
 
-                            <li><a class="dropdown-item" href="/seeds">Seeds</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/fertilizers">Fertilizers</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/pesticides">Pesticides</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item"
+                                        href="/login">Login</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="/register">Register</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button id="logoutBtn">Logout</button></li>
+                                <!-- <li><a class="dropdown-item" href="#">About
+                                        &amp; Shop</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" tabindex="-1">
+                                <div id="google_translate_element"
+                                    style="border-radius: 5px; padding-left: 50px;"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <a
+                        href="https://gunagantirajashekar.grafana.net/public-dashboards/5f247917b8bc443087f8d1106f021738">
+                        <button
+                            class="btn btn-primary btn-outline-light">Dashboards</button>
+                    </a>
+                    <a
+                        href="https://gunagantirajashekar.grafana.net/public-dashboards/dd1e42197c2044a8a34924f1d6395791">
+                        <button
+                            class="btn btn-primary btn-outline-light">Dashboards</button>
+                    </a>
+                    <!-- <form class="d-flex">
+                        <input class="form-control me-2" type="search"
+                            placeholder="Search" aria-label="Search">
 
-                            <li><a class="dropdown-item" href="#">Login</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="reg.php">Register</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">About &amp; Contact</a></li>
-                            <li><a class="dropdown-item" href="#">About &amp; Shop</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1">
-                            <div id="google_translate_element" style="border-radius: 5px; padding-left: 50px;"></div>
-                        </a>
-                    </li>
+                        <button class="btn btn-primary btn-outline-light"
+                            onclick="getLocation();">Location</button>
+                    </form> -->
+                </div>
+            </div>
+        </nav>
+        <!--navigation bootstrap end-->
+        <center>
+
+            <div>
+                <p style="font-size: 50px;">Get informed about your farming
+                    strategy
+                    <p style="font-size: 34px;">Here are some Questions we will
+                        answer. </p>
+                </p>
+                <ul style="font-size: 25px;font-style:bold;">
+                    <li>What crop to plant ?</li>
+                    <li>What fertilizer to use ?</li>
+                    <li>Which Disease do our crop have ?</li>
+                    <li>How to cure Plant Diseases ?</li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-
-                    <button class="btn btn-primary btn-outline-light" onclick="getLocation();">Location</button>
-                </form>
+                <div class="assistent"
+                    style="position: relative; left:-38%; top:-250px;">
+                    <img src="../static/images/tractor-farmer.png" alt="logo"
+                        srcset width="300px">
+                    <img src="../static/images/wifilogo.png" alt="logo" srcset
+                        width="70px"
+                        style="transform:rotate(120deg); position: relative; top: -100px;left: -100px;">
+                </div>
             </div>
-        </div>
-    </nav>
-    <!--navigation bootstrap end-->
-    <center>
+        </center>
 
-        <div>
-            <p style="font-size: 50px;">Get informed about your farming strategy
-            <p style="font-size: 34px;">Here are some Questions we will answer. </p>
-            </p>
-            <ul style="font-size: 25px;font-style:bold;">
-                <li>What crop to plant ?</li>
-                <li>What fertilizer to use ?</li>
-                <li>Which Disease do our crop have ?</li>
-                <li>How to cure Plant Diseases ?</li>
-            </ul>
-            <div class="assistent" style="position: relative; left:-38%; top:-250px;">
-                <img src="../static/images/tractor-farmer.png" alt="logo" srcset="" width="300px">
-                <img src="../static/images/wifilogo.png" alt="logo" srcset="" width="70px"
-                    style="transform:rotate(120deg); position: relative; top: -100px;left: -100px;">
-            </div>
-        </div>
-    </center>
+        <div class="container" id="services">
+            <div class="row">
+                <div class="col-md">
+                    <img src alt>
+                    <h3>Crop Suggestion</h3>
+                    <li>Recommendation about the types of crops need to be
+                        cultivated
+                        which can maximize the farmer's profit
 
-    <div class="container" id="services">
-        <div class="row">
-            <div class="col-md">
-                <img src="" alt="">
-                <h3>Crop Suggestion</h3>
-                <li>Recommendation about the types of crops need to be cultivated
-                    which can maximize the farmer's profit
+                    </li>
+                    <button class="btn btn-success"
+                        onclick="location.href='/crop';">Learn more</button>
 
-                </li>
-                <button class="btn btn-success" onclick="location.href='/crop';">Learn more</button>
+                </div>
+                <div class="col-md">
+                    <img src alt>
+                    <h3>Irrigation System</h3>
+                    <li>Recommendation about the types of Irrigation System need
+                        to be followed
+                        which can maximize the farmer's profit
 
-            </div>
-            <div class="col-md">
-                <img src="" alt="">
-                <h3>Irrigation System</h3>
-                <li>Recommendation about the types of Irrigation System need to be followed
-                    which can maximize the farmer's profit
+                    </li>
+                    <button class="btn btn-success"
+                        onclick="location.href='crop.html';">Learn more</button>
 
-                </li>
-                <button class="btn btn-success" onclick="location.href='crop.html';">Learn more</button>
-
-            </div>
-            <div class="col-md">
-                <img src="" alt="">
-                <h3>Fertilizer Recomendation</h3>
-                <li>
-                    Recommend about the type of fertilizer best suited for
-                    the particular soil and recommend the crop
-                </li>
-                <button class="btn btn-success" onclick="location.href='/fertilizer';">Learn more</button>
-            </div>
-            <div class="col-md">
-                <img src="" alt="">
-                <h3>Crop Disease prediction</h3>
-                <li>
-                    Predicting the name and causes of crop disease abd suggestions to cure it
-                </li>
-                <button class="btn btn-success" onclick="location.href='disease.html';">Learn more</button>
-            </div>
-            <div class="col-md">
-                <img src="" alt="">
-                <h3>Tech Farming</h3>
-                <li>
-                    A blog about agricultural technology
-                </li>
-                <button class="btn btn-success" onclick="location.href='disease.html';">Learn more</button>
-            </div>
-        </div>
-
-    </div>
-
-
-    <!--footer start-->
-    <div class="about"
-        style=" width:100%; height:auto;background-image:linear-gradient(to bottom right, rgb(148, 220, 59), rgb(9, 9, 6));;color:#fdfafa; position: relative;bottom: 200px;">
-        <br>
-        <h2 style="margin-left:20px;">About us</h2>
-        <div id="abt" class="d-flex align-items-start">
-            <p style="margin-left:10px;"> To Make Farmers Increase
-                Profit.We use state-of-the-art machine learning and deep learning technologies to help you
-                guide through
-                the entire farming process. Make informed decisions to understand the demographics of your area,
-                understand the
-                factors that affect your crop and keep them healthy for a super awesome successful yield</p>
-        </div><br><br>
-
-        <div id="copyright" class="d-flex align-items-end" style="margin-left:10%">
-
-
-        </div>
-        <div style="margin-top:0px;">
-            <center>©
-                <?php echo date("Y");?> All right are reserved for Rythu Seva organization.
-            </center>
-        </div>
-                <!-- ---------Chat Bot  ------------>
-<div class="chat-bar-collapsible">
-    <button id="chat-button" type="button" class="collapsible">Chat with us!
-        <!-- <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i> -->
-        <img src="../static/images/tractor-farmer.png" alt="" height="30px">
-    </button>
-
-    <div class="content">
-        <div class="full-chat-block">
-            <!-- Message Container -->
-            <div class="outer-container">
-                <div class="chat-container">
-                    <!-- Messages -->
-                    <div id="chatbox">
-                        <h5 id="chat-timestamp"></h5>
-                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
-                    </div>
-
-                    <!-- User input box -->
-                    <div class="chat-bar-input-block">
-                        <div id="userInput">
-                            <input id="textInput" class="input-box" type="text" name="msg"
-                                placeholder="Tap 'Enter' to send a message">
-                            <p></p>
-                        </div>
-
-                        <div class="chat-bar-icons">
-                            <!-- <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
-                                onclick="heartButton()"></i> -->
-                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
-                                onclick="sendButton()"></i>
-                        </div>
-                    </div>
-
-                    <div id="chat-bar-bottom">
-                        <p></p>
-                    </div>
-
+                </div>
+                <div class="col-md">
+                    <img src alt>
+                    <h3>Fertilizer Recomendation</h3>
+                    <li>
+                        Recommend about the type of fertilizer best suited for
+                        the particular soil and recommend the crop
+                    </li>
+                    <button class="btn btn-success"
+                        onclick="location.href='/fertilizer';">Learn
+                        more</button>
+                </div>
+                <div class="col-md">
+                    <img src alt>
+                    <h3>Crop Disease prediction</h3>
+                    <li>
+                        Predicting the name and causes of crop disease abd
+                        suggestions to cure it
+                    </li>
+                    <button class="btn btn-success"
+                        onclick="location.href='disease.html';">Learn
+                        more</button>
+                </div>
+                <div class="col-md">
+                    <img src alt>
+                    <h3>Tech Farming</h3>
+                    <li>
+                        A blog about agricultural technology
+                    </li>
+                    <button class="btn btn-success"
+                        onclick="location.href='disease.html';">Learn
+                        more</button>
                 </div>
             </div>
 
         </div>
-    </div>
-    </div>
 
-    <!--footer end-->
-    <script type="text/javascript">
+        <!--footer start-->
+        <div class="about"
+            style=" width:100%; height:auto;background-image:linear-gradient(to bottom right, rgb(148, 220, 59), rgb(9, 9, 6));;color:#fdfafa; position: relative;bottom: 200px;">
+            <br>
+            <h2 style="margin-left:20px;">About us</h2>
+            <div id="abt" class="d-flex align-items-start">
+                <p style="margin-left:10px;"> To Make Farmers Increase
+                    Profit.We use state-of-the-art machine learning and deep
+                    learning technologies to help you
+                    guide through
+                    the entire farming process. Make informed decisions to
+                    understand the demographics of your area,
+                    understand the
+                    factors that affect your crop and keep them healthy for a
+                    super awesome successful yield</p>
+            </div><br><br>
+
+            <div id="copyright" class="d-flex align-items-end"
+                style="margin-left:10%">
+
+            </div>
+            <div style="margin-top:0px;">
+                <center>©
+                    <?php echo date("Y");?> All right are reserved for Rythu
+                    Seva organization.
+                </center>
+            </div>
+            <!-- ---------Chat Bot  ------------>
+            <!-- CHAT BAR BLOCK -->
+            <div class="chat-bar-collapsible">
+                <button id="chat-button" type="button" class="collapsible">Chat
+                    with
+                    us!
+                    <i id="chat-icon" style="color: #fff;"
+                        class="fa fa-fw fa-comments-o"></i>
+                </button>
+
+                <div class="content">
+                    <div class="full-chat-block">
+                        <!-- Message Container -->
+                        <div class="outer-container">
+                            <div class="chat-container">
+                                <!-- Messages -->
+                                <div id="chatbox">
+                                    <h5 id="chat-timestamp"></h5>
+                                    <p id="botStarterMessage"
+                                        class="botText"><span>Loading...</span></p>
+                                </div>
+
+                                <!-- User input box -->
+                                <div class="chat-bar-input-block">
+                                    <div id="userInput">
+                                        <input id="messageInput"
+                                            class="input-box"
+                                            type="text" name="msg"
+                                            placeholder="Tap 'Enter' to send a message">
+                                        <p></p>
+                                    </div>
+
+                                    <div class="chat-bar-icons">
+                                        <i id="chat-icon"
+                                            style="color: crimson;"
+                                            class="fa fa-fw fa-microphone"
+                                            onclick="startVoiceRecognition()"></i>
+                                        <i id="chat-icon" style="color: #333;"
+                                            class="fa fa-fw fa-send"
+                                            onclick="sendMessage()"></i>
+                                    </div>
+                                </div>
+
+                                <div id="chatMessages">
+                                    <p></p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <script>
+            let recognizing = false; // Declare recognizing here
+    
+            // Collapsible
+            var coll = document.getElementsByClassName("collapsible");
+    
+            for (let i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+    
+                    var content = this.nextElementSibling;
+    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+    
+                });
+            }
+    
+            function getTime() {
+                let today = new Date();
+                let hours = today.getHours();
+                let minutes = today.getMinutes();
+    
+                if (hours < 10) {
+                    hours = "0" + hours;
+                }
+    
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+    
+                let time = hours + ":" + minutes;
+                return time;
+            }
+    
+            // Gets the first message
+            function firstBotMessage() {
+    let message = "Hello Rythu... Select any option ";
+    let message1 = "Crop Prediction ?";
+    let message2 = "Fertilizer Prediction ?";
+    let message3 = "Disease Prediction ?";
+    
+    // Construct the HTML with anchor tags
+    let htmlMessage = '<p class="bot-message"><span>' + message +'<br>'+
+                      '<a href="/crop">' + message1 + '</a><br>' +
+                      '<a href="/fertilizer">' + message2 + '</a><br>' +
+                      '<a href="https://karthik6717-tomato-disease-main-8jasm5.streamlit.app/">' + message3 + '</a></span></p>';
+
+    document.getElementById("botStarterMessage").innerHTML = htmlMessage;
+
+    let time = getTime();
+    document.getElementById("chat-timestamp").innerText = time;
+    document.getElementById("userInput").scrollIntoView(false);
+}
+    
+            firstBotMessage();
+    
+            let recognition = new window.webkitSpeechRecognition();
+    
+            recognition.onstart = function() {
+                recognizing = true;
+            };
+    
+            recognition.onend = function() {
+                recognizing = false;
+            };
+    
+            recognition.onresult = function(event) {
+                const result = event.results[0][0].transcript;
+                document.getElementById('messageInput').value = result;
+                sendMessage();
+            };
+    
+            function startVoiceRecognition() {
+                if (!recognizing) {
+                    recognition.start();
+                }
+            }
+    
+            function sendMessage() {
+                const messageInput = document.getElementById('messageInput');
+                const message = messageInput.value.trim();
+    
+                if (message !== '') {
+                    // Clear input field
+                    messageInput.value = '';
+    
+                    // Display user message
+                    displayMessage('user', message);
+    
+                    // Send message to server
+                    fetch('/api', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: message
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Display response message
+                            displayMessage('response', data.message);
+    
+                            // Synthesize response as voice
+                            speak(data.message);
+                        })
+                        .catch(error => {
+                            console.error('Error sending message:', error);
+                        });
+                }
+            }
+    
+            function displayMessage(type, message) {
+                const chatbox = document.getElementById('chatbox');
+                const timestamp = getTime();
+    
+                if (type === 'user') {
+                    const userMessage = `<div class="user-message"><span>${message}</span></div>`;
+                    chatbox.innerHTML += userMessage;
+                } else if (type === 'response') {
+                    const botMessage = `<div class="bot-message"><span>${message}</span></div>`;
+                    chatbox.innerHTML += botMessage;
+                }
+    
+                document.getElementById('chat-timestamp').innerText = timestamp;
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+    
+            function speak(text) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(utterance);
+            }
+
+            // Press enter to send a message
+            $("#messageInput").keypress(function (e) {
+                if (e.which == 13) {
+                    sendMessage();
+                }
+            });
+        </script>
+
+            <script
+                src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+            <!--footer end-->
+            <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
     </script>
 
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <!--  chat bot -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./chatbot/responses.js"></script>
-<script src="./chatbot/chat.js"></script>
+            <script type="text/javascript"
+                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-</body>
+            <!--  logout -->
+            <script>
+                document.getElementById('logoutBtn').addEventListener('click', async function() {
+                    try {
+                        const response = await fetch('http://localhost:3000/logout', {
+                            method: 'POST',
+                            credentials: 'include' // Include cookies in the request
+                        });
+            
+                        if (response.ok) {
+                            const responseData = await response.json();
+                            alert(responseData.message);
+                            window.location.href = '/login'; // Redirect to login page after logout
+                        } else {
+                            const errorMessage = await response.text();
+                            alert(errorMessage);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again later.');
+                    }
+                });
+            </script>
 
-</html>
+        </body>
+
+    </html>

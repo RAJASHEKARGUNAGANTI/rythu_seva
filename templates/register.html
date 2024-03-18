@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* styles.css */
+
+        body {
+        background-image: url('../static/images/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    p a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    p a:hover {
+        text-decoration: underline;
+    }
+
+    #navi a:hover {
+        color: rgb(252, 251, 251);
+        background-color: rgb(1, 98, 1);
+    }
+
+    #navi a:active {
+        color: rgb(255, 255, 255);
+        background-color: rgb(1, 91, 1);
+    }
+
+    #navi {
+        background-image: linear-gradient(to bottom right, rgb(44, 173, 61), rgb(38, 42, 1));
+    }
+
+    #navi a {
+        padding-top: 10px;
+        position: relative;
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-size: 35px; padding-left: 10px;">
+                <img src="../static/images/farmer-logo.png" alt="logo" srcset width="60px">
+                <b style="padding-left:15px; font-family:'Handlee', cursive;">Rythu Seva</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Your navbar items here -->
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <form id="registrationForm">
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const registerForm = document.getElementById('registrationForm');
+          const errorMessage = document.getElementById('errorMessage'); // Get the error message div
+      
+          registerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+      
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+      
+            const formData = {
+              name: name,
+              email: email,
+              password: password
+            };
+      
+            fetch('http://localhost:3000/register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => {
+              if (response.ok) {
+                alert('Registration successful!');
+                window.location.href = 'http://127.0.0.1:5000/home';
+              } else {
+                // Display error message from backend response
+                response.json().then(data => {
+                //   errorMessage.textContent = data.error;
+                alert(data.error);
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('An error occurred. Please try again later.');
+            });
+          });
+        });
+      </script>
+</body>
+</html>

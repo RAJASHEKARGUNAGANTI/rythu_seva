@@ -101,11 +101,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <li><a class="dropdown-item" href="#">Login</a></li>
+                        <li><a class="dropdown-item" href="/login">Login</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="reg.php">Register</a></li>
+                        <li><a class="dropdown-item" href="/register">Register</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -256,76 +256,56 @@
   <b style="color: black;"> Temparature :<input type="number" step="0.1" name="a" placeholder="Enter value of Temparature" style="color: black;"> <br><br>
       Humidity :<input type="number" step="0.1" name="b" placeholder="Enter value of Humidity" style="color: black;"> <br><br>
       Moisture :<input type="number" step="0.1" name="c" placeholder="Enter value  of Moisture" style="color: black;"> <br><br>
-      Soil Type :<input type="number" step="0.1" name="d" placeholder="Enter value of Soil Type" style="color: black;"> <br><br>
-      Crop Type :<input type="number" step="0.1" name="e" placeholder="Enter value Crop Type " style="color: black;"> <br><br>
+      Soil Type :
+        <select name="d" style="color: black;">
+            <option value="0">Black</option>
+            <option value="1">Clayey</option>
+            <option value="2">Loamy</option>
+            <option value="3">Red</option>
+            <option value= "4">Sandy</option>
+        </select>
+        <br><br>
+      Crop Type:
+      <select name="e" style="color: black;">
+          <option value="0">Barley</option>
+          <option value="1">Cotton</option>
+          <option value="2">Ground nuts</option>
+          <option value="3">Maize</option>
+          <option value="4">Millets</option>
+          <option value="5">Oil seeds</option>
+          <option value="6">Paddy</option>
+          <option value="7">Pulses</option>
+          <option value="8">Sugarcane</option>
+          <option value="9">Tobacco</option>
+          <option value="10">Wheat</option>
+      </select>
+      <br><br>
       Nitrogen :<input type="number" step="0.1" name="f" placeholder="Enter value Nitrogen" style="color: black;"> <br><br>
       Potassium :<input type="number" step="0.1" name="g" placeholder="Enter value of Potassium" style="color: black;"> <br><br>
       Phosphorous :<input type="number" step="0.1" name="h" placeholder="Enter value of Phosphorous" style="color: black;"> <br><br><br></b>
       <button class="btn btn-dark" type="submit" name="submit" value="predict">Submit</button>
       </form>
 
-      {%if data == 0%}
-        <h1 style="color: black;"> 10-26-26</h1>
-        
-        {%elif data == 1%}
+      {% if data is defined %}
+    {% if data == 0 %}
+        <h1 style="color: black;">10-26-26</h1>
+    {% elif data == 1 %}
         <h1 style="color: black;">14-35-14</h1>
-
-        {%elif data==2%}
+    {% elif data == 2 %}
         <h1 style="color: black;">17-17-17</h1>
-
-        {%elif data==3%}
+    {% elif data == 3 %}
         <h1 style="color: black;">20-20</h1>
-        
-        {%elif data==4%}
+    {% elif data == 4 %}
         <h1 style="color: black;">28-28</h1>
-
-        
-        {%elif data==5%}
+    {% elif data == 5 %}
         <h1 style="color: black;">DAP</h1>
-        
-
-        {%else%}
+    {% else %}
         <h1 style="color: black;">Urea</h1>
-
-        {%endif%}
-        <h2> </h2>
-
+    {% endif %}
+{% endif %}
       <!-- <div>
         <h3 style="color: black;">{{data}}</h3>
       </div> -->
-
-<!-- Karthik fertilizer form ends -->
-
-<h3 style="color: black;">Encoding Values</h3>
-<div class="encoded-values">
-  <div class="crop" style="color: black;">
-    <ul>
-      <h4>Crop Type</h4>
-      <li>Barley  0</li>
-      <li>Cotton  1</li>
-      <li>Ground nuts  2</li>
-      <li>Maize  3</li>
-      <li>Millets  4</li>
-      <li>Oil seeds  5</li>
-      <li>Paddy  6</li>
-      <li>Pulses  7</li>
-      <li>Sugarcane  8</li>
-      <li>Tobacco  9</li>
-      <li>Wheat  10</li>
-    </ul>
-  </div>
-  <div class="soil" style="color: black;">
-    <ul>
-      <h4>Soil Type</h4>
-      <li>Black  0</li>
-      <li>Clayey  1</li>
-      <li>Loamy  2</li>
-      <li>Red  3</li>
-      <li>Sandy  4</li>
-    </ul>
-  </div>
-</div>
-
 
 </div>
 <script type="text/javascript">
