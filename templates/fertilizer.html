@@ -163,114 +163,6 @@
     padding: 10px 10px;
   "
 >
-  <!-- <form method="POST" action="/predict_fertilizer">
-    <div class="form-group">
-      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-      <input
-        type="number"
-        class="form-control"
-        id="Nitrogen"
-        name="nitrogen"
-        placeholder="Enter the value (example:50)"
-        style="font-weight: bold"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="Phosphorous" style="font-size: 17px"
-        ><b>Phosphorous</b></label
-      >
-      <input
-        type="number"
-        class="form-control"
-        id="Phosphorous"
-        name="phosphorous"
-        placeholder="Enter the value (example:50)"
-        style="font-weight: bold"
-        required
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-      <input
-        type="number"
-        class="form-control"
-        id="Pottasium"
-        name="pottasium"
-        placeholder="Enter the value (example:50)"
-        style="font-weight: bold"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
-      <input
-        type="text"
-        class="form-control"
-        id="ph"
-        name="ph"
-        placeholder="Enter the value"
-        style="font-weight: bold"
-        required
-      />
-    </div> 
-    <div class="form-group">
-      <label for="crop" style="font-size: 17px"
-        ><b>Crop you want to grow</b></label
-      >
-      <select
-        name="cropname"
-        class="form-control"
-        id="crop"
-        placeholder="Select a crop"
-        style="font-weight: bold"
-        required
-      >
-        <option selected>Select crop</option>
-        <option>rice</option>
-        <option>maize</option>
-        <option>chickpea</option>
-        <option>kidneybeans</option>
-        <option>pigeonpeas</option>
-        <option>mothbeans</option>
-        <option>mungbean</option>
-        <option>blackgram</option>
-        <option>lentil</option>
-        <option>pomegranate</option>
-        <option>banana</option>
-        <option>mango</option>
-        <option>grapes</option>
-        <option>watermelon</option>
-        <option>muskmelon</option>
-        <option>apple</option>
-        <option>orange</option>
-        <option>papaya</option>
-        <option>coconut</option>
-        <option>cotton</option>
-        <option>jute</option>
-        <option>coffee</option>
-      </select>
-    </div>
-<br>
-    <div class="d-flex justify-content-center">
-    <button
-        type="submit"
-        class="btn btn-success"
-        style="
-          color: rgb(255, 252, 252);
-          font-weight: bold;
-          width: 130px;
-          height: 50px;
-          border-radius: 12px;
-          font-size: 21px;
-        "
-      >
-        Predict
-      </button>
-    </div>
-  </form> -->
-
 <!-- fertilizer form starts -->
 <div class = "container">
 <form action="/predict" method="POST" >
@@ -280,7 +172,7 @@
       type="number" 
       step="0.1" 
       class="form-control"
-      name="Temparature"
+      name="a"
       id = "Temparature" 
       placeholder="Enter value of Temparature" 
       style="color: black;"
@@ -292,7 +184,7 @@
         type="number" 
         step="0.1" 
         class="form-control"
-        name="Humidity"
+        name="b"
         id = "Humidity"  
         placeholder="Enter value of Humidity" 
         style="color: black;"
@@ -304,7 +196,7 @@
         type="number" 
         step="0.1" 
         class="form-control"
-        name="Moisture"
+        name="c"
         id = "Moisture"  
         placeholder="Enter value  of Moisture" 
         style="color: black;"
@@ -314,7 +206,7 @@
       <label for="SoilType" style="font-size: 17px ; color: black;"><b>Soil Type :</b></label>
         <select 
           class="form-control"
-          name="SoilType"
+          name="d"
           id = "SoilType"  
           style="color: black;"
           required>
@@ -330,7 +222,7 @@
       <label for="CropType" style="font-size: 17px ; color: black;"><b>Crop Type :</b></label>
       <select 
         class="form-control"
-        name="CropType"
+        name="e"
         id = "CropType" 
         style="color: black;"
         required>
@@ -354,7 +246,7 @@
         type="number" 
         step="0.1" 
         class="form-control"
-        name="Nitrogen"
+        name="f"
         id = "Nitrogen" 
         placeholder="Enter value Nitrogen" 
         style="color: black;"
@@ -366,7 +258,7 @@
         type="number" 
         step="0.1" 
         class="form-control"
-        name="Potassium"
+        name="g"
         id = "Potassium" 
         placeholder="Enter value of Potassium" 
         style="color: black;"
@@ -378,7 +270,7 @@
         type="number" 
         step="0.1" 
         class="form-control"
-        name="Phosphorous"
+        name="h"
         id = "Phosphorous" 
         placeholder="Enter value of Phosphorous" 
         style="color: black;"
