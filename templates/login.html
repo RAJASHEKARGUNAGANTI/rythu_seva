@@ -162,7 +162,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/techFarming">Tech Farming</a>
+              <a class="nav-link" href="/techFarming">Tech Farming</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -193,7 +193,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                class="nav-link active dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -212,7 +212,7 @@
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">About &amp; Contact</a>
+                  <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                 </li>
               </ul>
             </li>
@@ -225,7 +225,7 @@
               </a>
             </li>
           </ul>
-          <form class="d-flex">
+          <!-- <form class="d-flex">
             <input
               class="form-control me-2"
               type="search"
@@ -235,23 +235,24 @@
             <button class="btn btn-primary btn-outline-light" type="submit">
               Search
             </button>
-          </form>
+          </form> -->
         </div>
       </div>
     </nav>
     <div class="container">
       <form id="loginForm">
-        <div>
+        <h2>Login</h2>
+        <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit">Login</button>
     </form>
-    <p id="errorMessage" style="color: red;"></p>
+   
       <p>Don't have an account? <a href="/register">Register</a></p>
     </div>
 
@@ -296,5 +297,28 @@
 });
 
     </script>
+
+<script>
+  document.getElementById('logoutBtn').addEventListener('click', async function() {
+      try {
+          const response = await fetch('http://localhost:3000/logout', {
+              method: 'POST',
+              credentials: 'include' // Include cookies in the request
+          });
+
+          if (response.ok) {
+              const responseData = await response.json();
+              alert(responseData.message);
+              window.location.href = '/login'; // Redirect to login page after logout
+          } else {
+              const errorMessage = await response.text();
+              alert(errorMessage);
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again later.');
+      }
+  });
+</script>
   </body>
 </html>

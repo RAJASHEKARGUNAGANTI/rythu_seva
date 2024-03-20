@@ -111,7 +111,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">About &amp; Contact</a></li>
+                            <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -120,10 +120,20 @@
                         </a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
-                </form>
+                </form> -->
+                <a
+                href="https://gunagantirajashekar.grafana.net/public-dashboards/5f247917b8bc443087f8d1106f021738">
+                <button
+                    class="btn btn-primary btn-outline-light">Dashboards</button>
+            </a>
+            <a
+                href="https://gunagantirajashekar.grafana.net/public-dashboards/dd1e42197c2044a8a34924f1d6395791">
+                <button
+                    class="btn btn-primary btn-outline-light">Dashboards</button>
+            </a>
             </div>
         </div>
     </nav>
@@ -194,6 +204,29 @@
 
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script>
+            document.getElementById('logoutBtn').addEventListener('click', async function() {
+                try {
+                    const response = await fetch('http://localhost:3000/logout', {
+                        method: 'POST',
+                        credentials: 'include' // Include cookies in the request
+                    });
+        
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        alert(responseData.message);
+                        window.location.href = '/login'; // Redirect to login page after logout
+                    } else {
+                        const errorMessage = await response.text();
+                        alert(errorMessage);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        </script>
 
 </body>
 

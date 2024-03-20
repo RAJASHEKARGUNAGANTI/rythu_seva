@@ -102,23 +102,130 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navi">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="font-size: 35px; padding-left: 10px;">
-                <img src="../static/images/farmer-logo.png" alt="logo" srcset width="60px">
-                <b style="padding-left:15px; font-family:'Handlee', cursive;">Rythu Seva</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- Your navbar items here -->
+          <a
+            class="navbar-brand"
+            href="#"
+            style="font-size: 35px; padding-left: 10px"
+          >
+            <img
+              src="../static/images/farmer-logo.png"
+              alt="logo"
+              srcset
+              width="60px"
+            />
+            <b style="padding-left: 15px; font-family: 'Handlee', cursive"
+              >Rythu Seva</b
+            ></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/crop">Crop Suggestion</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://karthik6717-tomato-disease-main-8jasm5.streamlit.app/"
+                  >Crop Disease Prediction</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/fertilizer"
+                  >Fertilizers Recomendation</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/techFarming">Tech Farming</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Ecommerce
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/seeds">Seeds</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/fertilizers">Fertilizers</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/pesticides">Pesticides</a>
+                  </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
-                </form>
-            </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link active dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/login">Login</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li><a class="dropdown-item" href="/register">Register</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1">
+                  <div
+                    id="google_translate_element"
+                    style="border-radius: 5px; padding-left: 50px"
+                  ></div>
+                </a>
+              </li>
+            </ul>
+            <!-- <form class="d-flex">
+             <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-primary btn-outline-light" type="submit">
+                Search
+              </button>
+            <!-- </form> -->
+          </div>
         </div>
-    </nav>
+      </nav>
     <div class="container">
         <form id="registrationForm">
             <h2>Register</h2>
@@ -181,6 +288,28 @@
               alert('An error occurred. Please try again later.');
             });
           });
+        });
+      </script>
+      <script>
+        document.getElementById('logoutBtn').addEventListener('click', async function() {
+            try {
+                const response = await fetch('http://localhost:3000/logout', {
+                    method: 'POST',
+                    credentials: 'include' // Include cookies in the request
+                });
+      
+                if (response.ok) {
+                    const responseData = await response.json();
+                    alert(responseData.message);
+                    window.location.href = '/login'; // Redirect to login page after logout
+                } else {
+                    const errorMessage = await response.text();
+                    alert(errorMessage);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
         });
       </script>
 </body>

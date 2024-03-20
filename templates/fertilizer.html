@@ -25,6 +25,16 @@
     background-repeat: no-repeat;
     background-size: 100%;
   }
+  .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+
   #navi a:hover {
                 color: rgb(252, 251, 251);
                 background-color: rgb(1, 98, 1);
@@ -109,7 +119,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">About &amp; Contact</a></li>
+                        <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -118,25 +128,36 @@
                     </a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <a
+                        href="https://gunagantirajashekar.grafana.net/public-dashboards/5f247917b8bc443087f8d1106f021738">
+                        <button
+                            class="btn btn-primary btn-outline-light">Dashboards</button>
+                    </a>
+                    <a
+                        href="https://gunagantirajashekar.grafana.net/public-dashboards/dd1e42197c2044a8a34924f1d6395791">
+                        <button
+                            class="btn btn-primary btn-outline-light">Dashboards</button>
+                    </a>
+            <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
-            </form>
+            </form> -->
+            
         </div>
     </div>
 </nav>
 <!--navigation bootstrap end-->
 <br /><br />
-<h2 style="text-align: center; margin: 0px; color: black">
+
+<h2 style="text-align: center; margin: 0px; color: white">
   <b>Get informed advice on fertilizer based on soil</b>
 </h2>
-<br />
 
 <div
   style="
-    width: 350px;
-    height: 40rem;
-    margin: 0px auto;
+    width: 500px;
+    height: 50rem;
+    margin: 5px auto;
     color: rgb(255, 255, 255);
     border-radius: 25px;
     padding: 10px 10px;
@@ -250,23 +271,69 @@
     </div>
   </form> -->
 
-<!-- Karthik fertilizer form starts -->
-
+<!-- fertilizer form starts -->
+<div class = "container">
 <form action="/predict" method="POST" >
-  <b style="color: black;"> Temparature :<input type="number" step="0.1" name="a" placeholder="Enter value of Temparature" style="color: black;"> <br><br>
-      Humidity :<input type="number" step="0.1" name="b" placeholder="Enter value of Humidity" style="color: black;"> <br><br>
-      Moisture :<input type="number" step="0.1" name="c" placeholder="Enter value  of Moisture" style="color: black;"> <br><br>
-      Soil Type :
-        <select name="d" style="color: black;">
+    <div class="form-group">
+    <label for="Temparature" style="font-size: 17px ; color: black;"><b>Temparature :</b></label>
+    <input 
+      type="number" 
+      step="0.1" 
+      class="form-control"
+      name="Temparature"
+      id = "Temparature" 
+      placeholder="Enter value of Temparature" 
+      style="color: black;"
+      required> 
+    </div>
+    <div class="form-group">
+      <label for="Humidity" style="font-size: 17px ; color: black;"><b>Humidity :</b></label>
+      <input 
+        type="number" 
+        step="0.1" 
+        class="form-control"
+        name="Humidity"
+        id = "Humidity"  
+        placeholder="Enter value of Humidity" 
+        style="color: black;"
+        required> 
+    </div>
+    <div class="form-group">
+      <label for="Moisture" style="font-size: 17px ; color: black;"><b>Moisture :</b></label>
+      <input 
+        type="number" 
+        step="0.1" 
+        class="form-control"
+        name="Moisture"
+        id = "Moisture"  
+        placeholder="Enter value  of Moisture" 
+        style="color: black;"
+        required> 
+    </div>
+    <div class="form-group">
+      <label for="SoilType" style="font-size: 17px ; color: black;"><b>Soil Type :</b></label>
+        <select 
+          class="form-control"
+          name="SoilType"
+          id = "SoilType"  
+          style="color: black;"
+          required>
             <option value="0">Black</option>
             <option value="1">Clayey</option>
             <option value="2">Loamy</option>
             <option value="3">Red</option>
             <option value= "4">Sandy</option>
         </select>
-        <br><br>
-      Crop Type:
-      <select name="e" style="color: black;">
+        
+      </div>
+      <div class = "form-group">
+      <label for="CropType" style="font-size: 17px ; color: black;"><b>Crop Type :</b></label>
+      <select 
+        class="form-control"
+        name="CropType"
+        id = "CropType" 
+        style="color: black;"
+        required>
           <option value="0">Barley</option>
           <option value="1">Cotton</option>
           <option value="2">Ground nuts</option>
@@ -279,12 +346,57 @@
           <option value="9">Tobacco</option>
           <option value="10">Wheat</option>
       </select>
-      <br><br>
-      Nitrogen :<input type="number" step="0.1" name="f" placeholder="Enter value Nitrogen" style="color: black;"> <br><br>
-      Potassium :<input type="number" step="0.1" name="g" placeholder="Enter value of Potassium" style="color: black;"> <br><br>
-      Phosphorous :<input type="number" step="0.1" name="h" placeholder="Enter value of Phosphorous" style="color: black;"> <br><br><br></b>
-      <button class="btn btn-dark" type="submit" name="submit" value="predict">Submit</button>
+      
+    </div>
+    <div class = "form-group">
+      <label for="Nitrogen" style="font-size: 17px ; color: black;"><b>Nitrogen :</b></label>
+      <input 
+        type="number" 
+        step="0.1" 
+        class="form-control"
+        name="Nitrogen"
+        id = "Nitrogen" 
+        placeholder="Enter value Nitrogen" 
+        style="color: black;"
+        required> 
+    </div>
+    <div class = "form-group">
+      <label for="Potassium" style="font-size: 17px ; color: black;"><b>Potassium :</b></label>
+      <input 
+        type="number" 
+        step="0.1" 
+        class="form-control"
+        name="Potassium"
+        id = "Potassium" 
+        placeholder="Enter value of Potassium" 
+        style="color: black;"
+        required> 
+    </div>
+    <div class = "form-group">
+    <label for="Phosphorous" style="font-size: 17px ; color: black;"><b>Phosphorous :</b></label>
+      <input 
+        type="number" 
+        step="0.1" 
+        class="form-control"
+        name="Phosphorous"
+        id = "Phosphorous" 
+        placeholder="Enter value of Phosphorous" 
+        style="color: black;"
+        required> 
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary"
+        value="predict"
+        name="submit"
+        type="submit"
+      >
+      Submit
+      </button>
+    </div> 
       </form>
+    </div>
 
       {% if data is defined %}
     {% if data == 0 %}
@@ -316,5 +428,28 @@
 
 <script type="text/javascript"
   src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', async function() {
+        try {
+            const response = await fetch('http://localhost:3000/logout', {
+                method: 'POST',
+                credentials: 'include' // Include cookies in the request
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                alert(responseData.message);
+                window.location.href = '/login'; // Redirect to login page after logout
+            } else {
+                const errorMessage = await response.text();
+                alert(errorMessage);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        }
+    });
+</script>
 </body>
 </html>
